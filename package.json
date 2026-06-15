@@ -2,7 +2,7 @@
   "name": "easybook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://webtech95.github.io/Easybook-E-Commerce-Store",
+  "homepage": "https://webtech95.github.io/easybook-e-commerce-store",
   "type": "module",
   "scripts": {
     "dev": "vite",

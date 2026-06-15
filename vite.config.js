@@ -11,5 +11,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
-  base: '/',
+  base: '/easybook-e-commerce-store/',
 })
