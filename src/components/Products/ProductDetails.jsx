@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Products } from "./productitems";
 import { useTheme } from "../ThemeProvider";
-import { useCart } from "../Context/cartContext.jsx";
+import { useCart } from "../context/cartContext.jsx";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,7 +18,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const foundProduct = Products.find(
-      (p) => p.id === parseInt(id)
+      (p) => String(p.id) === String(id)
     );
 
     if (foundProduct) {
@@ -26,8 +26,9 @@ const ProductDetails = () => {
 
       const related = Products.filter(
         (p) =>
-          p.category === foundProduct.category &&
-          p.id !== foundProduct.id
+          String(p.category).toLowerCase() ===
+          String(foundProduct.category).toLowerCase() &&
+          String(p.id) !== String(foundProduct.id)
       ).slice(0, 4);
 
       setRelatedProducts(related);
@@ -37,7 +38,7 @@ const ProductDetails = () => {
   }, [id]);
 
   const handleAddToCart = () => {
-    addToCart({...product, quantity});
+    addToCart({ ...product, quantity });
     toast.success("Added to cart");
 
   };
@@ -116,8 +117,9 @@ const ProductDetails = () => {
 
             {/* Description */}
             <p className="leading-relaxed ">
-              Dive into the world of "{product.name}". Perfect for {product.category} lovers.
-              A must-have for your collection.
+              {/* Dive into the world of "{product.name}". Perfect for {product.category} lovers.
+              A must-have for your collection. */}
+              {product.description}
             </p>
 
             {/* Quantity */}

@@ -5,10 +5,11 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-   darkMode: 'class', // ✅ required for manual dark toggle
+  darkMode: 'class', // ✅ required for manual dark toggle
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: { extend: {} },
   plugins: [
     tailwindcss(),
   ],
+  base: '/',
 })

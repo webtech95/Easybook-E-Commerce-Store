@@ -1,6 +1,6 @@
 import React from "react";
 import ProductCard from "./productCard";
-import { Products } from "./productitems";
+import { Products} from "./productitems"
 import ScrollToTop from "../../Scroller/ScrollToTop";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTheme } from "../ThemeProvider";
@@ -95,16 +95,20 @@ const Books = () => {
           </div>
         ) : (
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {displayedProducts.map((product) => (
+            {displayedProducts.map((product) =>
               product ? (
-                <Link key={product.id} to={`/product/${product.id}`}>
+                <div
+                  key={product.id}
+                  onClick={() => navigate(`/product/${product.id}`)}
+                  className="cursor-pointer"
+                >
                   <ProductCard
                     product={product}
                     isDarkMode={isDarkMode}
                   />
-                </Link>
+                </div>
               ) : null
-            ))}
+            )}
           </div>
         )}
 

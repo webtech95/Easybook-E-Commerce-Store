@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../Context/cartContext";
+import { useCart } from "../context/cartContext.jsx";
 import { useTheme } from "../ThemeProvider";
 import { toast } from "react-toastify";
 
